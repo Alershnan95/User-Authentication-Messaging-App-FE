@@ -1,0 +1,32 @@
+<div style="margin: 2rem 6rem;width:30rem" class="row">
+  <div class="col-12">
+    <div>
+      <h1>{{headerLabel}}</h1>
+    </div>
+    <form class="example-form">
+      <mat-form-field style="width:100%" class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input style="color:white" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="form.email" matInput
+          placeholder="Enter your email address">
+
+      </mat-form-field>
+
+      <mat-form-field style="width:100%" *ngIf="headerLabel==='Sign Up'" class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input style="color:white" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.name" matInput
+          placeholder="Enter your name">
+
+      </mat-form-field>
+
+
+      <mat-form-field  style="width:100%"class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input style="color:white" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.password" type="password"
+          matInput placeholder="Enter your password">
+
+      </mat-form-field>
+
+      <button style="width:100%" (click)="performAction()" class="btn btn-primary" type="submit">{{actionButtonLabel}}</button>
+    </form>
+  </div>
+</div>

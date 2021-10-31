@@ -1,0 +1,36 @@
+<div class="row">
+
+  <nav class="nav-bar container-fluid">
+    <div style="height:3.5rem" class="row">
+      <div class="col-sm">
+        <h1 style="font-size: 1.5rem;font-weight: bold;margin: 9px;text-align: center;">MEAN Stack Notes Application
+        </h1>
+      
+      </div>
+      <div class="col-sm" *ngIf="!isUserAuthenticated">
+
+        <button style="height: 100%;width: 34%;font-size: 1.5rem;" (click)="onTabSelect('signUp')" type="button"
+          class="btn btn-secondary">
+          Sign Up
+        </button>
+        <button style="height: 100%;width: 34%;font-size: 1.5rem;" (click)="onTabSelect('signIn')" type="button"
+          class="btn btn-danger">
+          Sign In
+        </button>
+      </div>
+ 
+      <div class="col-sm" *ngIf="isUserAuthenticated">
+        <button class="btn btn-danger" style="height: 79%;width: 34%;font-size: 1.5rem;" (click)="onTabSelect('logOut')">Log Out</button>
+      </div>
+      <div *ngIf="isUserAuthenticated" class="notification-wrapper col-sm">
+        <div style="position: relative;bottom: 5px;" class="notification-btn" (click)="onTabSelect('notifications')">
+          <span class="fa-stack fa-2x" [attr.data-count]="storeModel.messageCount">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </nav>

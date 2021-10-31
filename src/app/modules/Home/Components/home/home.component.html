@@ -1,0 +1,26 @@
+<div style="margin: 4rem 6rem;width:30rem" *ngIf="storeModel.userInfo && storeModel.userInfo.user && storeModel.userInfo.user._id" class="container">
+    <h2>Share notes</h2>
+    <div class="form-group">
+        <mat-form-field style="width:100%" appearance="fill">
+            <mat-label>Select Recipient
+                Email</mat-label>
+            <mat-select [(ngModel)]="selectedReceipientEmail" (ngModelChange)="onEmailSelect($event)"
+                [(value)]="selectedReceipientEmail">
+                <mat-option [value]="item._id" [disabled]="item._id===storeModel.userInfo.user._id"
+                    *ngFor="let item of storeModel.allUserEmails; trackBy:identify">
+                    {{item.email}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <form class="example-form">
+        <mat-form-field style="width:100%" class="example-full-width" appearance="fill">
+            <mat-label>Leave a message</mat-label>
+            <textarea style="color:white" [ngModelOptions]="{standalone: true}" [(ngModel)]="message" matInput
+                placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+    </form>
+    <button style="width:100%" [disabled]="!selectedReceipientEmail" (click)="sendMessage()" class="btn btn-primary" type="submit">Send
+        Message</button>
+</div>

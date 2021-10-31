@@ -1,0 +1,16 @@
+<div style="color:black" class="notification-content">
+    <div class="card card-body">
+        <div class="notification-header">
+            <h1>Notifications</h1>
+        </div>
+
+        <div class="alert alert-warning" *ngFor="let item of data.notificationMessages;let i = index;trackBy:identify"
+            role="alert" >
+            <p>Message: {{item.message}}</p>
+            <p>Delivered: {{item.createdAt | localDateFormat}}</p>
+            <p>Sent By: {{item.senderName}}</p>
+        </div>
+
+    </div>
+
+</div>
